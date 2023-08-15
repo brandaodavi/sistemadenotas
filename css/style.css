@@ -8,14 +8,11 @@
 body {
     width: 100vw;
     height: 100vh;
+    background: linear-gradient(rgb(243, 240, 240), rgb(61, 214, 241), rgb(188, 212, 219));
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: url('/images/numeros.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-
 }
 
 hr{
