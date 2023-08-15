@@ -10,6 +10,7 @@ const nota1 = document.querySelector('#nota1');
 const nota2 = document.querySelector('#nota2');
 const nota3 = document.querySelector('#nota3');
 const nome = document.querySelector('#name');
+
 const btnNota1 = document.querySelector('#btnNota1');
 const btnNota2 = document.querySelector('#btnNota2');
 const btnNota3 = document.querySelector('#btnNota3');
@@ -30,51 +31,6 @@ function closeModal(){
     ativar(botaoMedia);
     ativar(formName);
 }
-
-
-botaoMedia.addEventListener('click', calcularMedia);
-
-function calcularMedia(){
-    event.preventDefault();
-
-    let primeiraNota = parseFloat(nota1.value);
-    let segundaNota = parseFloat(nota2.value);
-    let terceiraNota = parseFloat(nota3.value);
-
-    const media = (primeiraNota + segundaNota + terceiraNota) / 3;
-    
-
-    if(primeiraNota>=0 && segundaNota>=0 && terceiraNota>=0 && nome.value!==''){
-        ativar(notasControl);
-        mudarCor(btnMedia, media);
-        if(media>=7){
-            info.innerHTML = `<span>O(a) aluno(a) ${nome.value} está aprovado(a)!</span>`;
-            btnNota1.innerHTML = `${primeiraNota.toFixed(1)}`;
-        }else if(media>=4){
-            info.innerHTML = `<span>O(a) aluno(a) ${nome.value} está na prova final!</span>`;
-            btnNota1.innerHTML = `${segundaNota.toFixed(1)}`;
-        }else{
-            info.innerHTML = `<span>O aluno ${nome.value} está na recuperação!</span>`;
-            btnNota1.innerHTML = `${terceiraNota.toFixed(1)}`;
-        }
-    }else{
-        desativar(notasControl);
-        info.innerHTML = `<span>Por favor, preencha os campos corretamente</span>`
-        /*btnMedia.innerHTML = `S/N`;
-        for(let i = 0; i<botoes.length;i++){
-            botoes[i].innerHTML = `S/N`;
-        }
-        removerCor(botoes);
-        removerCor(btnMedia);
-        */
-    }
-    
-    //Dando cor de acordo com a nota
-    mudarCor(btnNota1, primeiraNota);
-    mudarCor(btnNota2, segundaNota);
-    mudarCor(btnNota3, terceiraNota);
-}
-
 
 function mudarCor(botao, nota){
     if(nota >= 7){
@@ -106,3 +62,45 @@ function ativar(elemento){
 function desativar(elemento){
     elemento.classList.add('desligar');
 }
+
+
+botaoMedia.addEventListener('click', function calcularMedia(){
+    event.preventDefault();
+
+    let primeiraNota = parseFloat(nota1.value);
+    let segundaNota = parseFloat(nota2.value);
+    let terceiraNota = parseFloat(nota3.value);
+
+    const media = (primeiraNota + segundaNota + terceiraNota) / 3;
+    
+
+    if((primeiraNota>=0 && primeiraNota<=10 && segundaNota>=0 && segundaNota<=10 && terceiraNota>=0 && terceiraNota<=10 && nome.value!='')){
+        ativar(notasControl);
+        mudarCor(btnMedia, media);
+        if(media>=7){
+            info.innerHTML = `<span>O(a) aluno(a) ${nome.value} está aprovado(a)!</span>`;
+            btnNota1.innerHTML = `${primeiraNota.toFixed(1)}`;
+        }else if(media>=4){
+            info.innerHTML = `<span>O(a) aluno(a) ${nome.value} está na prova final!</span>`;
+            btnNota2.innerHTML = `${segundaNota.toFixed(1)}`;
+        }else{
+            info.innerHTML = `<span>O aluno ${nome.value} está na recuperação!</span>`;
+            btnNota3.innerHTML = `${terceiraNota.toFixed(1)}`;
+        }
+    }else{
+        desativar(notasControl);
+        info.innerHTML = `<span>Por favor, preencha os campos corretamente</span>`
+        /*btnMedia.innerHTML = `S/N`;
+        for(let i = 0; i<botoes.length;i++){
+            botoes[i].innerHTML = `S/N`;
+        }
+        removerCor(botoes);
+        removerCor(btnMedia);
+        */
+    }
+    
+    //Dando cor de acordo com a nota
+    mudarCor(btnNota1, primeiraNota);
+    mudarCor(btnNota2, segundaNota);
+    mudarCor(btnNota3, terceiraNota);
+});

@@ -114,6 +114,7 @@ span{
     color: brown;
     transition: 500ms linear;
 }
+
 @keyframes modal{
     from{
         opacity: 0;
@@ -153,48 +154,7 @@ span{
     background: none;
 }
 
-@media (max-width: 768px){
-    .modal{
-        padding: 10px;
-        width: 80%;
-    }
 
-    span, .btns button{
-        font-size: smaller;
-    }
-
-    .modal-container .modal .notas-control .botoes-nota button{
-        width: 40px;
-    
-    }
-
-    .modal-container .modal .notas-control .botoes-nota{
-        flex-direction: column;
-        grid-gap: 5px;
-        margin-top: 15px;
-    }
-
-    .modal .notas-control .descricao{
-      display: none;
-    }
-
-    .modal-container .modal .btns .btnClose{
-        margin-bottom: 10px;
-    }
-}
-
-
-/*@media (max-width: 1200px){
-
-}
-
-@media (max-width: 500px){
-    
-}
-
-@media (max-width: 480px){
-    
-} */
 
 @font-face{
     font-family: Minecraft;
