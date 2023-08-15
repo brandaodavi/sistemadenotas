@@ -1,14 +1,15 @@
 const modal = document.querySelector('.modal-container');
 const formulario = document.querySelector('.container');
-const info = document.querySelector('#info');
 const botaoMedia = document.querySelector('.btnOpenModal');
 const formName = document.querySelector('.form-name');
+const btnMedia = document.querySelector('.notaCor');
+const notasControl = document.querySelector('.notas-control');
+
+const info = document.querySelector('#info');
 const nota1 = document.querySelector('#nota1');
 const nota2 = document.querySelector('#nota2');
 const nota3 = document.querySelector('#nota3');
 const nome = document.querySelector('#name');
-const notasControl = document.querySelector('.notas-control');
-const btnMedia = document.querySelector('.notaCor');
 const btnNota1 = document.querySelector('#btnNota1');
 const btnNota2 = document.querySelector('#btnNota2');
 const btnNota3 = document.querySelector('#btnNota3');
@@ -18,16 +19,16 @@ const botoes = [btnNota1, btnNota2, btnNota3];
 function openModal(){
     //quando o botao ver média for clicado, ele vai ativar essa função cujo objetivo é adicionar mais uma classe à div com a classe .modal-container. Assim vai ficar noo final <div class="modal-container active"
     modal.classList.add('active'); 
-    formulario.classList.add('desligar');
-    botaoMedia.classList.add('desligar');
-    formName.classList.add('desligar');
+    desativar(formulario);
+    desativar(botaoMedia);
+    desativar(formName);
 }
 
 function closeModal(){
     modal.classList.remove('active'); //processo contrário do citado acima
-    formulario.classList.remove('desligar');
-    botaoMedia.classList.remove('desligar');
-    formName.classList.remove('desligar');
+    ativar(formulario);
+    ativar(botaoMedia);
+    ativar(formName);
 }
 
 
@@ -98,10 +99,10 @@ function removerCor(botao){
     botao.classList.remove('aprovado');
 }
 
-function ativar(div){
-    div.classList.remove('desligar');
+function ativar(elemento){
+    elemento.classList.remove('desligar');
 }
 
-function desativar(div){
-    div.classList.add('desligar');
+function desativar(elemento){
+    elemento.classList.add('desligar');
 }
