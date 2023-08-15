@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitema Escolar</title>
+    <link rel="stylesheet" href="css/notas.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="form-name">
+        <h2>Nome do aluno</h2>
+        <form>
+            <input type="number" id="nota1" placeholder="Insira o nome" required>         
+        </form>
+    </div>
+    <div class="container">
+        <div class="form-container">
+            <h2>Iª Unidade</h2>
+            <form>
+                <input type="number" id="nota1" placeholder="Insira a nota" required>         
+            </form>
+        </div>
+        <div class="form-container">
+            <h2>IIª Unidade</h2>
+            <form>
+                <input type="number" id="nota2" placeholder="Insira a nota" required>   
+            </form>
+        </div>
+        <div class="form-container">
+            <h2>IIIª Unidade</h2>
+            <form>
+                <input type="number" id="nota3" placeholder="Insira a nota" required>
+            </form>
+        </div>
+    </div>
+    <div class="btnResult">
+        <button class="btnOpenModal" onclick="openModal()">Resultado</button>
+    </div>
+    <div class="modal-container">
+        <div class="modal">
+            <h2>Info</h2>
+            <hr />
+            <span id="info"></span>
+            <hr />
+            <div class="notas-control">
+                <div class="descricao">
+                    <p>Iª Unidade</p>
+                    <p>IIª Unidade</p>
+                    <p>IIIª Unidade</p>
+                </div>
+                <div class="botoes-nota">
+                    <button class="botaoNota" id="btnNota1"></button>
+                    <button class="botaoNota" id="btnNota2"></button>
+                    <button class="botaoNota" id="btnNota3"></button>
+                </div>
+                <div class="descricao">
+                    <p>Média</p>
+                </div>
+                <div class="container-nota">
+                    <button class="notaCor"></button>
+                </div>
+            </div>
+            <div class="btns">
+                <button class="btnClose" onclick="closeModal()">Voltar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
