@@ -2,11 +2,11 @@ const modal = document.querySelector('.modal-container');
 const formulario = document.querySelector('.container');
 const info = document.querySelector('#info');
 const botaoMedia = document.querySelector('.btnOpenModal');
-
+const formName = document.querySelector('.form-name');
 const nota1 = document.querySelector('#nota1');
 const nota2 = document.querySelector('#nota2');
 const nota3 = document.querySelector('#nota3');
-
+const nome = document.querySelector('#name');
 const notasControl = document.querySelector('.notas-control');
 const btnMedia = document.querySelector('.notaCor');
 const btnNota1 = document.querySelector('#btnNota1');
@@ -20,12 +20,14 @@ function openModal(){
     modal.classList.add('active'); 
     formulario.classList.add('desligar');
     botaoMedia.classList.add('desligar');
+    formName.classList.add('desligar');
 }
 
 function closeModal(){
     modal.classList.remove('active'); //processo contrário do citado acima
     formulario.classList.remove('desligar');
     botaoMedia.classList.remove('desligar');
+    formName.classList.remove('desligar');
 }
 
 
@@ -40,18 +42,18 @@ function calcularMedia(){
 
     const media = (primeiraNota + segundaNota + terceiraNota) / 3;
     
-    
-    if(primeiraNota>=0 && segundaNota>=0 && terceiraNota>=0){
+
+    if(primeiraNota>=0 && segundaNota>=0 && terceiraNota>=0 && nome.value!==''){
         ativar(notasControl);
         mudarCor(btnMedia, media);
         if(media>=7){
-            info.innerHTML = `<span>O aluno foi aprovado!</span>`;
+            info.innerHTML = `<span>O(a) aluno(a) ${nome.value} está aprovado(a)!</span>`;
             btnNota1.innerHTML = `${primeiraNota.toFixed(1)}`;
         }else if(media>=4){
-            info.innerHTML = `<span>O aluno está na prova final!</span>`;
+            info.innerHTML = `<span>O(a) aluno(a) ${nome.value} está na prova final!</span>`;
             btnNota1.innerHTML = `${segundaNota.toFixed(1)}`;
         }else{
-            info.innerHTML = `<span>O aluno está na recuperação!</span>`;
+            info.innerHTML = `<span>O aluno ${nome.value} está na recuperação!</span>`;
             btnNota1.innerHTML = `${terceiraNota.toFixed(1)}`;
         }
     }else{
@@ -70,7 +72,6 @@ function calcularMedia(){
     mudarCor(btnNota1, primeiraNota);
     mudarCor(btnNota2, segundaNota);
     mudarCor(btnNota3, terceiraNota);
-
 }
 
 

@@ -8,11 +8,11 @@
 body {
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(rgb(243, 240, 240), rgb(61, 214, 241), rgb(188, 212, 219));
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-image: url(/images/BACKGROUND.png);
 }
 
 hr{
@@ -56,6 +56,7 @@ span{
     height: 50px;
     border: none;
     border-radius: 5px;
+    box-shadow: 2px 2px 3px rgb(75, 71, 71);
 }
 
 .modal .notas-control .descricao{
@@ -74,8 +75,8 @@ span{
     align-items: center;
     width: auto;
     height: 50px;
-   
 }
+
 .container-nota .notaCor{
     font-size: 25px;
     width: 100px;
@@ -83,6 +84,7 @@ span{
     border: none;
     border-radius: 5px;
     margin-left: 0;
+    box-shadow: 2px 2px 3px rgb(75, 71, 71);
 }
 
 .btns{
