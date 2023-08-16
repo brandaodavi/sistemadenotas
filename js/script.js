@@ -10,6 +10,13 @@ const nota1 = document.querySelector('#nota1');
 const nota2 = document.querySelector('#nota2');
 const nota3 = document.querySelector('#nota3');
 const nome = document.querySelector('#name');
+const saudacao = document.querySelector('#saudacao');
+
+const error = document.querySelector('#error');
+const errorN1 = document.querySelector('#errorN1');
+const errorN2 = document.querySelector('#errorN2');
+const errorN3 = document.querySelector('#errorN3');
+
 
 const btnNota1 = document.querySelector('#btnNota1');
 const btnNota2 = document.querySelector('#btnNota2');
@@ -63,6 +70,22 @@ function desativar(elemento){
     elemento.classList.add('desligar');
 }
 
+function validarCampo(campo, erro){
+    event.preventDefault();
+    
+    if(!campo.value){
+        erro.classList.remove("desligar");
+        erro.innerHTML = `<span>Este campo não pode estar vazio</span>`
+    }else{
+        erro.classList.add("desligar");
+    }
+
+    if(campo.value<0 || campo.value>10){
+        erro.classList.remove("desligar");
+        erro.innerHTML = `<span>Insira valores entre 0 e 10</span>`;
+    }
+
+}
 
 botaoMedia.addEventListener('click', function calcularMedia(){
     event.preventDefault();
@@ -103,4 +126,27 @@ botaoMedia.addEventListener('click', function calcularMedia(){
     mudarCor(btnNota1, primeiraNota);
     mudarCor(btnNota2, segundaNota);
     mudarCor(btnNota3, terceiraNota);
+
+    //Bom dia, tarde, noite
+
+    const dataAtual = new Date();
+    
+    if(dataAtual.getHours()>=0 && dataAtual.getHours()<=6){
+        saudacao.innerHTML = `<h2>Boa madrugada!</h2>`;
+    }else if(dataAtual.getHours()>6 && dataAtual.getHours()<=12){
+        saudacao.innerHTML = `<h2>Bom dia!</h2>`;
+    }else if(dataAtual.getHours()>12 && dataAtual.getHours()<=18){
+        saudacao.innerHTML = `<h2>Boa tarde!</h2>`;
+    }else{
+        saudacao.innerHTML = `<h2>Boa noite!</h2>`;
+    }
+
+
+    validarCampo(nome, error);
+    validarCampo(nota1, errorN1);
+    validarCampo(nota2, errorN2);
+    validarCampo(nota3, errorN3);
+
+
+   
 });

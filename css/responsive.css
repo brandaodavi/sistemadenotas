@@ -44,6 +44,10 @@
         width: 70px;
         height: 40px;
     }
+
+    .form-name #error, #errorN1, #errorN2, #errorN3 {
+        font-size: larger;
+    }
 }
 
 @media (max-width: 500px){
@@ -80,6 +84,6 @@
 
   .container{
     margin-bottom: 20px;
-  }  
+  } 
   
 } 
