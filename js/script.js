@@ -128,9 +128,7 @@ botaoMedia.addEventListener('click', function calcularMedia(){
     mudarCor(btnNota3, terceiraNota);
 
     //Bom dia, tarde, noite
-
     const dataAtual = new Date();
-    
     if(dataAtual.getHours()>=0 && dataAtual.getHours()<=6){
         saudacao.innerHTML = `<h2>Boa madrugada!</h2>`;
     }else if(dataAtual.getHours()>6 && dataAtual.getHours()<=12){
@@ -141,12 +139,8 @@ botaoMedia.addEventListener('click', function calcularMedia(){
         saudacao.innerHTML = `<h2>Boa noite!</h2>`;
     }
 
-
     validarCampo(nome, error);
     validarCampo(nota1, errorN1);
     validarCampo(nota2, errorN2);
     validarCampo(nota3, errorN3);
-
-
-   
 });
